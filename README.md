@@ -1,36 +1,101 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+npm # PTE Intensive - Website Đăng Ký Học Thử
 
-## Getting Started
+Website đăng ký học thử cho trung tâm PTE Intensive, được xây dựng bằng Next.js, Tailwind CSS và Firebase.
 
-First, run the development server:
+## Tính năng
+
+- Trang chủ với form đăng ký học thử
+- Trang cảm ơn sau khi đăng ký
+- Trang admin ẩn để quản lý dữ liệu đăng ký
+- Gửi email thông báo khi có người đăng ký mới
+- Lưu trữ dữ liệu đăng ký vào Firebase Firestore
+- Theo dõi UTM parameters cho mục đích marketing
+
+## Cài đặt
+
+1. Clone repository:
+
+```bash
+git clone <repository-url>
+cd hocthu
+```
+
+2. Cài đặt các dependencies:
+
+```bash
+npm install
+```
+
+3. Tạo file `.env.local` từ file `.env.local.example` và cập nhật các thông tin cấu hình:
+
+```bash
+cp .env.local.example .env.local
+```
+
+4. Cập nhật file `.env.local` với thông tin Firebase và EmailJS của bạn:
+
+```
+# Firebase Configuration
+NEXT_PUBLIC_FIREBASE_API_KEY=your-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your-auth-domain
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your-storage-bucket
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your-messaging-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=your-app-id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=your-measurement-id
+
+# EmailJS Configuration
+NEXT_PUBLIC_EMAILJS_SERVICE_ID=your-service-id
+NEXT_PUBLIC_EMAILJS_TEMPLATE_ID=your-template-id
+NEXT_PUBLIC_EMAILJS_USER_ID=your-user-id
+```
+
+## Cấu hình Firebase
+
+1. Tạo một dự án Firebase mới tại [Firebase Console](https://console.firebase.google.com/)
+2. Tạo một ứng dụng web trong dự án
+3. Sao chép thông tin cấu hình Firebase vào file `.env.local`
+4. Tạo một Firestore database và collection `hoc_thu_dang_ky`
+
+## Cấu hình EmailJS
+
+1. Đăng ký tài khoản tại [EmailJS](https://www.emailjs.com/)
+2. Tạo một service (ví dụ: Gmail)
+3. Tạo một email template với các tham số sau:
+   - `ho_ten`: Họ tên người đăng ký
+   - `so_dien_thoai`: Số điện thoại
+   - `muc_dich`: Mục đích học PTE
+   - `thoi_gian_can`: Thời gian cần có điểm
+   - `thanh_pho`: Thành phố
+   - `email`: Email người đăng ký
+4. Sao chép Service ID, Template ID và User ID vào file `.env.local`
+
+## Chạy ứng dụng
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Mở [http://localhost:3000](http://localhost:3000) để xem trang chủ.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Trang admin có thể truy cập tại [http://localhost:3000/admin-secret-123](http://localhost:3000/admin-secret-123).
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Triển khai
 
-## Learn More
+Cách dễ nhất để triển khai ứng dụng Next.js là sử dụng [Vercel Platform](https://vercel.com/new).
 
-To learn more about Next.js, take a look at the following resources:
+1. Đẩy code lên GitHub
+2. Kết nối repository với Vercel
+3. Thêm các biến môi trường trong cài đặt dự án Vercel
+4. Triển khai
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Cấu trúc dự án
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `app/`: Thư mục chính của ứng dụng Next.js
+  - `page.tsx`: Trang chủ
+  - `thank-you/page.tsx`: Trang cảm ơn
+  - `admin-secret-123/page.tsx`: Trang admin
+  - `components/`: Các component React
+  - `firebase/`: Cấu hình và utility functions cho Firebase
+  - `utils/`: Các utility functions khác
+- `public/`: Tài nguyên tĩnh (hình ảnh, favicon, v.v.)
