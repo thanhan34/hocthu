@@ -60,11 +60,17 @@ export async function POST(request: Request) {
       const response = await sgMail.send(msg);
       console.log('SendGrid response:', response);
       return NextResponse.json({ success: true });
-    } catch (sendError: any) {
+    } catch (sendError: unknown) {
       console.error('SendGrid error:', sendError);
-      if (sendError.response) {
-        console.error('SendGrid error body:', sendError.response.body);
+      
+      // Type guard to safely access response property
+      if (sendError && typeof sendError === 'object' && 'response' in sendError) {
+        const typedError = sendError as { response?: { body?: unknown } };
+        if (typedError.response && typedError.response.body) {
+          console.error('SendGrid error body:', typedError.response.body);
+        }
       }
+      
       return NextResponse.json(
         { error: 'Failed to send email through SendGrid' },
         { status: 500 }

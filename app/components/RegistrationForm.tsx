@@ -20,7 +20,7 @@ const RegistrationForm = () => {
     handleSubmit,
     setValue,
     watch,
-    formState: { errors, isValid },
+    formState: { errors },
     trigger,
   } = useForm<RegistrationFormData>({
     resolver: zodResolver(registrationSchema),

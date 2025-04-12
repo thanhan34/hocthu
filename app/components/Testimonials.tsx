@@ -10,7 +10,7 @@ const TestimonialCard: React.FC<TestimonialProps> = ({ quote, name, index }) => 
   // Alternate between different styles based on index
   const isOrange = index % 3 === 0;
   const isLight = index % 3 === 1;
-  const isNeutral = index % 3 === 2;
+  // Third style (neutral) is used when neither isOrange nor isLight is true
   
   return (
     <div className={`group relative ${index % 3 === 0 ? 'mt-0' : index % 3 === 1 ? 'mt-8 md:mt-12' : 'mt-4 md:mt-6'}`}>

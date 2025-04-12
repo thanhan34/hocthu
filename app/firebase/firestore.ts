@@ -1,11 +1,32 @@
 import { collection, addDoc, getDocs, doc, updateDoc, deleteDoc, serverTimestamp, query, orderBy } from 'firebase/firestore';
 import { db } from './config';
+import { RegistrationFormData } from '../utils/validationSchema';
 
 // Collection reference
 const registrationsRef = collection(db, 'hoc_thu_dang_ky');
 
+// Define a type for Firebase timestamp
+export interface FirebaseTimestamp {
+  toDate: () => Date;
+}
+
+// Define a type for the registration data with metadata when creating
+export interface RegistrationWithMetadata extends RegistrationFormData {
+  submitTime: ReturnType<typeof serverTimestamp>;
+  deviceType: string;
+  id?: string;
+}
+
+// Define a type for the registration data as stored in Firestore
+export interface StoredRegistration extends Omit<RegistrationFormData, 'submitTime'> {
+  id: string;
+  submitTime: FirebaseTimestamp | string | number | Date;
+  deviceType: string;
+  [key: string]: unknown;
+}
+
 // Add a new registration
-export const addRegistration = async (data: any) => {
+export const addRegistration = async (data: RegistrationFormData) => {
   try {
     // Add timestamp and device type
     const deviceType = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
@@ -44,7 +65,7 @@ export const getRegistrations = async () => {
 };
 
 // Update a registration
-export const updateRegistration = async (id: string, data: any) => {
+export const updateRegistration = async (id: string, data: Partial<StoredRegistration>) => {
   try {
     const docRef = doc(db, 'hoc_thu_dang_ky', id);
     await updateDoc(docRef, data);

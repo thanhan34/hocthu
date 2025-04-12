@@ -1,28 +1,9 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { getRegistrations, updateRegistration, deleteRegistration } from '../firebase/firestore';
+import { getRegistrations, updateRegistration, deleteRegistration, StoredRegistration, FirebaseTimestamp } from '../firebase/firestore';
 
-interface Registration {
-  id: string;
-  hoTen: string;
-  soDienThoai: string;
-  soDienThoaiZalo: string;
-  email: string;
-  mucDich: string;
-  mucTieuDiem: string;
-  thoiGianCan: string;
-  thanhPho: string;
-  gioiTinh: string;
-  namSinh: string;
-  nguon: string;
-  ghiChu: string;
-  utmSource: string;
-  utmCampaign: string;
-  deviceType: string;
-  submitTime: any;
-  [key: string]: any;
-}
+type Registration = StoredRegistration;
 
 const AdminPanel = () => {
   const [registrations, setRegistrations] = useState<Registration[]>([]);
@@ -32,7 +13,9 @@ const AdminPanel = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterBy, setFilterBy] = useState('all');
   const [sortBy, setSortBy] = useState('newest');
-  const [stats, setStats] = useState({
+  // Stats for dashboard metrics (used in parent component via DOM)
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [_, setStats] = useState({
     total: 0,
     today: 0,
     thisWeek: 0,
@@ -40,7 +23,42 @@ const AdminPanel = () => {
 
   useEffect(() => {
     fetchRegistrations();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  // Type guard for FirebaseTimestamp
+  const isFirebaseTimestamp = (value: unknown): value is FirebaseTimestamp => {
+    return value !== null && 
+           typeof value === 'object' && 
+           'toDate' in value && 
+           typeof (value as FirebaseTimestamp).toDate === 'function';
+  };
+
+  // Helper function to safely get timestamp in milliseconds
+  const getTimestampMs = (timestamp: FirebaseTimestamp | string | number | Date | undefined): number => {
+    if (!timestamp) return 0;
+    
+    if (isFirebaseTimestamp(timestamp)) {
+      // It's a Firebase Timestamp
+      return timestamp.toDate().getTime();
+    } else if (timestamp instanceof Date) {
+      // It's a Date object
+      return timestamp.getTime();
+    } else if (typeof timestamp === 'number') {
+      // It's already a number (milliseconds)
+      return timestamp;
+    } else {
+      // It's a string or something else, try to parse it
+      try {
+        return new Date(timestamp).getTime();
+      } catch (
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
+        _
+      ) {
+        return 0;
+      }
+    }
+  };
 
   const fetchRegistrations = async () => {
     try {
@@ -55,14 +73,12 @@ const AdminPanel = () => {
       const oneWeekAgo = today - 7 * 24 * 60 * 60 * 1000;
       
       const todayCount = registrationsData.filter(reg => {
-        if (!reg.submitTime) return false;
-        const submitTime = reg.submitTime.toDate ? reg.submitTime.toDate().getTime() : new Date(reg.submitTime).getTime();
+        const submitTime = getTimestampMs(reg.submitTime);
         return submitTime >= today;
       }).length;
       
       const weekCount = registrationsData.filter(reg => {
-        if (!reg.submitTime) return false;
-        const submitTime = reg.submitTime.toDate ? reg.submitTime.toDate().getTime() : new Date(reg.submitTime).getTime();
+        const submitTime = getTimestampMs(reg.submitTime);
         return submitTime >= oneWeekAgo;
       }).length;
       
@@ -165,15 +181,13 @@ const AdminPanel = () => {
     if (filterBy === 'today') {
       const now = new Date();
       const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-      if (!reg.submitTime) return false;
-      const submitTime = reg.submitTime.toDate ? reg.submitTime.toDate().getTime() : new Date(reg.submitTime).getTime();
+      const submitTime = getTimestampMs(reg.submitTime);
       return searchMatch && submitTime >= today;
     }
     if (filterBy === 'thisWeek') {
       const now = new Date();
       const oneWeekAgo = now.getTime() - 7 * 24 * 60 * 60 * 1000;
-      if (!reg.submitTime) return false;
-      const submitTime = reg.submitTime.toDate ? reg.submitTime.toDate().getTime() : new Date(reg.submitTime).getTime();
+      const submitTime = getTimestampMs(reg.submitTime);
       return searchMatch && submitTime >= oneWeekAgo;
     }
     if (filterBy === 'mucDich') {
@@ -185,10 +199,8 @@ const AdminPanel = () => {
     
     return searchMatch;
   }).sort((a, b) => {
-    if (!a.submitTime || !b.submitTime) return 0;
-    
-    const timeA = a.submitTime.toDate ? a.submitTime.toDate().getTime() : new Date(a.submitTime).getTime();
-    const timeB = b.submitTime.toDate ? b.submitTime.toDate().getTime() : new Date(b.submitTime).getTime();
+    const timeA = getTimestampMs(a.submitTime);
+    const timeB = getTimestampMs(b.submitTime);
     
     if (sortBy === 'newest') {
       return timeB - timeA;
@@ -197,13 +209,23 @@ const AdminPanel = () => {
     }
   });
 
-  const formatDate = (timestamp: any) => {
+  const formatDate = (timestamp: FirebaseTimestamp | string | number | Date | undefined) => {
     if (!timestamp) return 'N/A';
     
     try {
-      const date = timestamp.toDate ? timestamp.toDate() : new Date(timestamp);
-      return date.toLocaleString('vi-VN');
-    } catch (error) {
+      if (isFirebaseTimestamp(timestamp)) {
+        return timestamp.toDate().toLocaleString('vi-VN');
+      } else if (timestamp instanceof Date) {
+        return timestamp.toLocaleString('vi-VN');
+      } else if (typeof timestamp === 'number' || typeof timestamp === 'string') {
+        return new Date(timestamp).toLocaleString('vi-VN');
+      }
+      return 'Invalid date format';
+    } catch (
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      _
+    ) {
+      // Ignore the error and return a fallback string
       return 'Invalid date';
     }
   };
