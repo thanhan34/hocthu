@@ -38,6 +38,8 @@ const config: Config = {
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'float': 'float 6s ease-in-out infinite',
         'float-random': 'float-random 10s ease-in-out infinite',
+        'slow-zoom': 'slow-zoom 20s ease-in-out infinite',
+        'bounce-slow': 'bounce-slow 3s ease-in-out infinite',
       },
       keyframes: {
         float: {
@@ -49,6 +51,14 @@ const config: Config = {
           '25%': { transform: 'translate(10px, -15px)' },
           '50%': { transform: 'translate(-5px, -25px)' },
           '75%': { transform: 'translate(-15px, -10px)' },
+        },
+        'slow-zoom': {
+          '0%, 100%': { transform: 'scale(1.05)' },
+          '50%': { transform: 'scale(1.15)' },
+        },
+        'bounce-slow': {
+          '0%, 100%': { transform: 'translateY(0)' },
+          '50%': { transform: 'translateY(-10px)' },
         },
       },
       transitionDelay: {

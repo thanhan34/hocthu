@@ -156,7 +156,7 @@ export default function Home() {
                 Đăng ký ngay
               </a>
               <a 
-                href="https://zalo.me" 
+                href="https://www.facebook.com/PTE.Intensive.VN" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-transparent text-white border-2 border-white hover:bg-white/10 px-10 py-5 text-lg md:text-xl rounded-full shadow-xl inline-block font-bold transform transition-all duration-300 hover:scale-105"

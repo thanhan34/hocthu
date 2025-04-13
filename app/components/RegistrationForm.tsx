@@ -77,7 +77,7 @@ const RegistrationForm = () => {
     if (isStepValid) {
       setFormStep(formStep + 1);
       // Scroll to top of form
-      const formElement = document.getElementById('registration-form');
+      const formElement = document.getElementById('registration-form-element');
       if (formElement) {
         formElement.scrollIntoView({ behavior: 'smooth' });
       }
@@ -87,7 +87,7 @@ const RegistrationForm = () => {
   const prevStep = () => {
     setFormStep(formStep - 1);
     // Scroll to top of form
-    const formElement = document.getElementById('registration-form');
+    const formElement = document.getElementById('registration-form-element');
     if (formElement) {
       formElement.scrollIntoView({ behavior: 'smooth' });
     }
@@ -161,23 +161,23 @@ const RegistrationForm = () => {
             </div>
             
             <div className="mb-6">
-              <label htmlFor="soDienThoaiZalo" className="form-label">Số điện thoại dùng Zalo (nếu không có, nhập lại số trên)</label>
+              <label htmlFor="soDienThoaiZalo" className="block text-[#374151] font-[500] mb-2">Số điện thoại dùng Zalo (nếu không có, nhập lại số trên)</label>
               <input
                 id="soDienThoaiZalo"
                 {...register('soDienThoaiZalo')}
-                className={`form-input ${errors.soDienThoaiZalo ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${errors.soDienThoaiZalo ? 'border-red-500' : 'border-gray-300'}`}
                 placeholder="Nhập số Zalo của bạn"
               />
               <ErrorMessage message={errors.soDienThoaiZalo?.message} />
             </div>
             
             <div className="mb-6">
-              <label htmlFor="email" className="form-label">Email</label>
+              <label htmlFor="email" className="block text-[#374151] font-[500] mb-2">Email</label>
               <input
                 type="email"
                 id="email"
                 {...register('email')}
-                className={`form-input ${errors.email ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${errors.email ? 'border-red-500' : 'border-gray-300'}`}
                 placeholder="Nhập email của bạn"
               />
               <ErrorMessage message={errors.email?.message} />
@@ -198,70 +198,93 @@ const RegistrationForm = () => {
         return (
           <>
             <div className="mb-6">
-              <label htmlFor="mucDich" className="form-label">Bạn cần PTE để làm gì?</label>
+              <label htmlFor="mucDich" className="block text-[#374151] font-[500] mb-2">Bạn cần PTE để làm gì?</label>
               <select
                 id="mucDich"
                 {...register('mucDich')}
-                className={`form-select ${errors.mucDich ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors appearance-none bg-white ${errors.mucDich ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <option value="">-- Chọn mục đích --</option>
-                <option value="Visa 485">Visa 485</option>
-                <option value="Visa 189">Visa 189</option>
-                <option value="Visa 190">Visa 190</option>
-                <option value="Du học">Du học</option>
-                <option value="Công việc">Công việc</option>
-                <option value="Khác">Khác</option>
+                <option value="Du học Úc - Visa 500">Du học Úc - Visa 500</option>
+                <option value="Working Holiday Úc - Visa 462">Working Holiday Úc - Visa 462</option>
+                <option value="Đi làm/Định cư diện chủ bảo lãnh Úc - Visa 482/494/186">Đi làm/Định cư diện chủ bảo lãnh Úc - Visa 482/494/186</option>
+                <option value="Định cư diện tay nghề cao Úc - Visa 189/190/491">Định cư diện tay nghề cao Úc - Visa 189/190/491</option>
+                <option value="Gia hạn ở lại Úc sau tốt nghiệp - Visa 485">Gia hạn ở lại Úc sau tốt nghiệp - Visa 485</option>
+                <option value="Định cư diện đầu tư Úc - Visa 188/132">Định cư diện đầu tư Úc - Visa 188/132</option>
+                <option value="Visa nông nghiệp Úc - Visa 403">Visa nông nghiệp Úc - Visa 403</option>
+                <option value="Visa training Úc - Visa 407">Visa training Úc - Visa 407</option>
+                <option value="Diện cộng điểm Partner Úc">Diện cộng điểm Partner Úc</option>
+                <option value="Thẩm định tay nghề Úc (Skill Assessment)">Thẩm định tay nghề Úc (Skill Assessment)</option>
+                <option value="Du học New Zealand">Du học New Zealand</option>
+                <option value="Định cư New Zealand">Định cư New Zealand</option>
+                <option value="Du học Canada">Du học Canada</option>
+                <option value="Đi làm/Định cư Canada - PTE Core">Đi làm/Định cư Canada - PTE Core</option>
+                <option value="Nhập học các trường ở Việt Nam">Nhập học các trường ở Việt Nam</option>
+                <option value="Tốt nghiệp các trường ở Việt Nam">Tốt nghiệp các trường ở Việt Nam</option>
+                <option value="Đi làm ở Việt Nam">Đi làm ở Việt Nam</option>
+                <option value="Du học Anh">Du học Anh</option>
+                <option value="Du học Mỹ">Du học Mỹ</option>
+                <option value="Du học các quốc gia khác">Du học các quốc gia khác</option>
               </select>
               <ErrorMessage message={errors.mucDich?.message} />
             </div>
             
             <div className="mb-6">
-              <label htmlFor="mucTieuDiem" className="form-label">Bạn cần điểm PTE bao nhiêu?</label>
+              <label htmlFor="mucTieuDiem" className="block text-[#374151] font-[500] mb-2">Bạn cần điểm PTE bao nhiêu?</label>
               <select
                 id="mucTieuDiem"
                 {...register('mucTieuDiem')}
-                className={`form-select ${errors.mucTieuDiem ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors appearance-none bg-white ${errors.mucTieuDiem ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <option value="">-- Chọn mục tiêu điểm --</option>
-                <option value="30">30</option>
-                <option value="36">36</option>
-                <option value="42">42</option>
-                <option value="50">50</option>
-                <option value="58">58</option>
-                <option value="65">65</option>
-                <option value="79">79</option>
+                <option value="PTE 30 (IELTS 4.5)">PTE 30 (IELTS 4.5)</option>
+                <option value="PTE 36 (IELTS 5.0)">PTE 36 (IELTS 5.0)</option>
+                <option value="PTE 36 all bands (IELTS 5.0)">PTE 36 all bands (IELTS 5.0)</option>
+                <option value="PTE 42 (IELTS 5.5)">PTE 42 (IELTS 5.5)</option>
+                <option value="PTE 50 (IELTS 6.0)">PTE 50 (IELTS 6.0)</option>
+                <option value="PTE 58 (IELTS 6.5)">PTE 58 (IELTS 6.5)</option>
+                <option value="PTE 60 (IELTS 6.5)">PTE 60 (IELTS 6.5)</option>
+                <option value="PTE 65 (IELTS 7.0)">PTE 65 (IELTS 7.0)</option>
+                <option value="PTE 73 (IELTS 7.5)">PTE 73 (IELTS 7.5)</option>
+                <option value="PTE 79 (IELTS 8.0)">PTE 79 (IELTS 8.0)</option>
+                <option value="PTE Core (CLB 3)">PTE Core (CLB 3)</option>
+                <option value="PTE Core (CLB 4)">PTE Core (CLB 4)</option>
+                <option value="PTE Core (CLB 5)">PTE Core (CLB 5)</option>
+                <option value="PTE Core (CLB 6)">PTE Core (CLB 6)</option>
+                <option value="PTE Core (CLB 7)">PTE Core (CLB 7)</option>
+                <option value="PTE Core (CLB 8)">PTE Core (CLB 8)</option>
+                <option value="PTE Core (CLB 9)">PTE Core (CLB 9)</option>
+                <option value="PTE Core (CLB 10)">PTE Core (CLB 10)</option>
+                <option value="Còn đang mơ hồ">Còn đang mơ hồ</option>
               </select>
               <ErrorMessage message={errors.mucTieuDiem?.message} />
             </div>
             
             <div className="mb-6">
-              <label htmlFor="thoiGianCan" className="form-label">Khi nào bạn cần có điểm?</label>
+              <label htmlFor="thoiGianCan" className="block text-[#374151] font-[500] mb-2">Khi nào bạn cần có điểm?</label>
               <select
                 id="thoiGianCan"
                 {...register('thoiGianCan')}
-                className={`form-select ${errors.thoiGianCan ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors appearance-none bg-white ${errors.thoiGianCan ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <option value="">-- Chọn thời gian --</option>
-                <option value="Gấp trong 1 tháng">Gấp trong 1 tháng</option>
-                <option value="1-2 tháng">1-2 tháng</option>
-                <option value="Không gấp">Không gấp</option>
+                <option value="Gấp trong vòng 1 tháng">Gấp trong vòng 1 tháng</option>
+                <option value="Có thời gian 2-3 tháng">Có thời gian 2-3 tháng</option>
+                <option value="Có thời gian 4-6 tháng">Có thời gian 4-6 tháng</option>
+                <option value="Chưa cần gấp">Chưa cần gấp</option>
               </select>
               <ErrorMessage message={errors.thoiGianCan?.message} />
             </div>
             
             <div className="mb-6">
-              <label htmlFor="thanhPho" className="form-label">Thành phố bạn đang ở</label>
-              <select
+              <label htmlFor="thanhPho" className="block text-[#374151] font-[500] mb-2">Thành phố bạn đang ở</label>
+              <input
+                type="text"
                 id="thanhPho"
                 {...register('thanhPho')}
-                className={`form-select ${errors.thanhPho ? 'border-red-500' : ''}`}
-              >
-                <option value="">-- Chọn thành phố --</option>
-                <option value="HCM">TP. Hồ Chí Minh</option>
-                <option value="Hà Nội">Hà Nội</option>
-                <option value="Đà Nẵng">Đà Nẵng</option>
-                <option value="Khác">Khác</option>
-              </select>
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${errors.thanhPho ? 'border-red-500' : 'border-gray-300'}`}
+                placeholder="Nhập thành phố bạn đang ở"
+              />
               <ErrorMessage message={errors.thanhPho?.message} />
             </div>
             
@@ -287,11 +310,11 @@ const RegistrationForm = () => {
         return (
           <>
             <div className="mb-6">
-              <label htmlFor="gioiTinh" className="form-label">Giới tính</label>
+              <label htmlFor="gioiTinh" className="block text-[#374151] font-[500] mb-2">Giới tính</label>
               <select
                 id="gioiTinh"
                 {...register('gioiTinh')}
-                className={`form-select ${errors.gioiTinh ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors appearance-none bg-white ${errors.gioiTinh ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <option value="">-- Chọn giới tính --</option>
                 <option value="Nam">Nam</option>
@@ -302,12 +325,12 @@ const RegistrationForm = () => {
             </div>
             
             <div className="mb-6">
-              <label htmlFor="namSinh" className="form-label">Năm sinh</label>
+              <label htmlFor="namSinh" className="block text-[#374151] font-[500] mb-2">Năm sinh</label>
               <input
                 type="number"
                 id="namSinh"
                 {...register('namSinh')}
-                className={`form-input ${errors.namSinh ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors ${errors.namSinh ? 'border-red-500' : 'border-gray-300'}`}
                 min="1950"
                 max="2010"
                 placeholder="Nhập năm sinh của bạn"
@@ -316,11 +339,11 @@ const RegistrationForm = () => {
             </div>
             
             <div className="mb-6">
-              <label htmlFor="nguon" className="form-label">Nguồn bạn biết đến chúng tôi</label>
+              <label htmlFor="nguon" className="block text-[#374151] font-[500] mb-2">Nguồn bạn biết đến chúng tôi</label>
               <select
                 id="nguon"
                 {...register('nguon')}
-                className={`form-select ${errors.nguon ? 'border-red-500' : ''}`}
+                className={`w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors appearance-none bg-white ${errors.nguon ? 'border-red-500' : 'border-gray-300'}`}
               >
                 <option value="">-- Chọn nguồn --</option>
                 <option value="Facebook">Facebook</option>
@@ -333,11 +356,11 @@ const RegistrationForm = () => {
             </div>
             
             <div className="mb-8">
-              <label htmlFor="ghiChu" className="form-label">Ghi chú / lời nhắn</label>
+              <label htmlFor="ghiChu" className="block text-[#374151] font-[500] mb-2">Ghi chú / lời nhắn</label>
               <textarea
                 id="ghiChu"
                 {...register('ghiChu')}
-                className="form-textarea"
+                className="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-colors resize-none border-gray-300"
                 rows={4}
                 placeholder="Nhập ghi chú hoặc lời nhắn của bạn (nếu có)"
               ></textarea>
@@ -377,7 +400,7 @@ const RegistrationForm = () => {
   };
 
   return (
-    <div id="registration-form" className="card max-w-2xl mx-auto shadow-xl rounded-2xl overflow-hidden">
+    <div className="card max-w-2xl mx-auto shadow-xl rounded-2xl overflow-hidden relative z-10">
       <div className="gradient-orange py-6 px-8">
         <h2 className="text-2xl font-bold text-white text-center">Đăng ký học thử miễn phí</h2>
       </div>
@@ -397,7 +420,7 @@ const RegistrationForm = () => {
             </div>
       </div>
       
-      <form onSubmit={handleSubmit(onSubmit)} className="p-8 pt-4">
+      <form id="registration-form-element" onSubmit={handleSubmit(onSubmit)} className="p-8 pt-4">
         {renderFormStep()}
       </form>
     </div>

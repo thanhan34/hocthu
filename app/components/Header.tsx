@@ -48,19 +48,21 @@ const Header = () => {
               <span className="absolute bottom-0 left-0 w-0 h-full bg-orange-light-very opacity-0 rounded-lg -z-10 transition-all duration-300 group-hover:w-full group-hover:opacity-100"></span>
             </Link>
             <a 
-              href="#registration-form" 
-              className="text-gray-700 hover:text-orange-primary font-medium transition-all duration-300 relative group py-2 px-3"
-            >
-              <span className="relative z-10">Đăng ký học thử</span>
-              <span className="absolute bottom-0 left-0 w-0 h-full bg-orange-light-very opacity-0 rounded-lg -z-10 transition-all duration-300 group-hover:w-full group-hover:opacity-100"></span>
-            </a>
-            <a 
-              href="https://zalo.me" 
+              href="https://www.facebook.com/pteintensive" 
               target="_blank" 
               rel="noopener noreferrer" 
               className="text-gray-700 hover:text-orange-primary font-medium transition-all duration-300 relative group py-2 px-3"
             >
-              <span className="relative z-10">Liên hệ Zalo</span>
+              <span className="relative z-10">Liên hệ Facebook</span>
+              <span className="absolute bottom-0 left-0 w-0 h-full bg-orange-light-very opacity-0 rounded-lg -z-10 transition-all duration-300 group-hover:w-full group-hover:opacity-100"></span>
+            </a>
+            <a 
+              href="https://www.facebook.com/PTE.Intensive.VN" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-gray-700 hover:text-orange-primary font-medium transition-all duration-300 relative group py-2 px-3"
+            >
+              <span className="relative z-10">Liên hệ tư vấn</span>
               <span className="absolute bottom-0 left-0 w-0 h-full bg-orange-light-very opacity-0 rounded-lg -z-10 transition-all duration-300 group-hover:w-full group-hover:opacity-100"></span>
             </a>
             <a 
@@ -108,20 +110,7 @@ const Header = () => {
                 <span className="absolute inset-0 bg-orange-light-very opacity-0 rounded-xl -z-10 transition-opacity duration-300 group-hover:opacity-100"></span>
               </Link>
               <a 
-                href="#registration-form" 
-                className="text-gray-700 hover:text-orange-primary font-medium transition-all duration-300 relative group py-3 px-4 rounded-xl"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                <div className="flex items-center">
-                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-orange-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
-                  </svg>
-                  <span>Đăng ký học thử</span>
-                </div>
-                <span className="absolute inset-0 bg-orange-light-very opacity-0 rounded-xl -z-10 transition-opacity duration-300 group-hover:opacity-100"></span>
-              </a>
-              <a 
-                href="https://zalo.me" 
+                href="https://www.facebook.com/pteintensive" 
                 target="_blank" 
                 rel="noopener noreferrer" 
                 className="text-gray-700 hover:text-orange-primary font-medium transition-all duration-300 relative group py-3 px-4 rounded-xl"
@@ -129,9 +118,24 @@ const Header = () => {
               >
                 <div className="flex items-center">
                   <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-orange-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                   </svg>
-                  <span>Liên hệ Zalo</span>
+                  <span>Liên hệ Facebook</span>
+                </div>
+                <span className="absolute inset-0 bg-orange-light-very opacity-0 rounded-xl -z-10 transition-opacity duration-300 group-hover:opacity-100"></span>
+              </a>
+              <a 
+                href="https://www.facebook.com/PTE.Intensive.VN" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="text-gray-700 hover:text-orange-primary font-medium transition-all duration-300 relative group py-3 px-4 rounded-xl"
+                onClick={() => setIsMenuOpen(false)}
+              >
+                <div className="flex items-center">
+                  <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3 text-orange-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                  </svg>
+                  <span>Liên hệ tư vấn</span>
                 </div>
                 <span className="absolute inset-0 bg-orange-light-very opacity-0 rounded-xl -z-10 transition-opacity duration-300 group-hover:opacity-100"></span>
               </a>

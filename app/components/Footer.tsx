@@ -52,7 +52,7 @@ const Footer = () => {
               
               <div className="flex space-x-4 justify-center md:justify-start">
                 <a 
-                  href="https://facebook.com" 
+                  href="https://www.facebook.com/pteintensive" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-primary transition-all duration-300 transform hover:scale-110 shadow-lg"
@@ -63,13 +63,15 @@ const Footer = () => {
                   </svg>
                 </a>
                 <a 
-                  href="https://zalo.me" 
+                  href="https://www.facebook.com/PTE.Intensive.VN" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="w-12 h-12 rounded-full bg-gray-800 flex items-center justify-center hover:bg-orange-primary transition-all duration-300 transform hover:scale-110 shadow-lg"
-                  aria-label="Zalo"
+                  aria-label="Facebook"
                 >
-                  <span className="font-bold text-sm">Zalo</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                  </svg>
                 </a>
                 <a 
                   href="https://youtube.com" 
@@ -109,19 +111,31 @@ const Footer = () => {
                   <li className="flex items-start group transform transition-transform duration-300 hover:translate-x-2">
                     <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-orange-primary transition-colors duration-300 shadow-md">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                        <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                       </svg>
                     </div>
                     <div>
-                      <p className="font-medium text-white">Zalo</p>
+                      <p className="font-medium text-white">Facebook</p>
                       <a 
-                        href="https://zalo.me" 
+                        href="https://www.facebook.com/pteintensive" 
                         target="_blank" 
                         rel="noopener noreferrer"
                         className="text-gray-400 hover:text-orange-primary transition-colors"
                       >
                         PTE Intensive
                       </a>
+                    </div>
+                  </li>
+                  <li className="flex items-start group transform transition-transform duration-300 hover:translate-x-2">
+                    <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-orange-primary transition-colors duration-300 shadow-md">
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                      </svg>
+                    </div>
+                    <div>
+                      <p className="font-medium text-white">Phone</p>
+                      <p className="text-gray-400">AU: 0450669092</p>
+                      <p className="text-gray-400">VN: 0349213852</p>
                     </div>
                   </li>
                   <li className="flex items-start group transform transition-transform duration-300 hover:translate-x-2">
@@ -162,14 +176,14 @@ const Footer = () => {
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                         </svg>
                       </div>
-                      <span className="text-white">Đăng ký học thử</span>
+                      <span className="text-white">Đăng ký ngay</span>
                     </a>
                   </li>
                   <li className="group transform transition-transform duration-300 hover:translate-x-2">
-                    <a href="https://zalo.me" target="_blank" rel="noopener noreferrer" className="flex items-center">
+                    <a href="https://www.facebook.com/PTE.Intensive.VN" target="_blank" rel="noopener noreferrer" className="flex items-center">
                       <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center mr-4 group-hover:bg-orange-primary transition-colors duration-300 shadow-md">
                         <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                          <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
                         </svg>
                       </div>
                       <span className="text-white">Liên hệ tư vấn</span>
