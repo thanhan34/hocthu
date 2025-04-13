@@ -42,12 +42,12 @@ export default function ThankYou() {
               </Link>
               
               <a 
-                href="https://zalo.me" 
+                href="https://www.facebook.com/PTE.Intensive.VN" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="bg-transparent border-2 border-white hover:bg-white hover:text-orange-primary px-8 py-4 text-lg rounded-full shadow-lg transform transition-transform hover:scale-105"
               >
-                Liên hệ Zalo
+                Liên hệ Facebook
               </a>
             </div>
           </div>
@@ -63,47 +63,47 @@ export default function ThankYou() {
         </div>
       </section>
       
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-[#fedac2]">
         <div className="container-custom">
           <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl font-bold mb-12 text-center">Các bước tiếp theo</h2>
+            <h2 className="text-3xl font-bold mb-12 text-center text-[#fc5d01]">Các bước tiếp theo</h2>
             
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="card text-center relative border border-gray-100 hover:border-orange-primary transition-colors duration-300 hover:shadow-xl">
-                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-[#006d39] text-white flex items-center justify-center text-xl font-bold shadow-lg">
+              <div className="card text-center relative bg-white rounded-xl p-6 border-2 border-[#fdbc94] hover:border-[#fc5d01] transition-all duration-300 hover:shadow-xl">
+                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-14 h-14 rounded-full bg-[#fc5d01] text-white flex items-center justify-center text-xl font-bold shadow-lg">
                   1
                 </div>
                 <div className="pt-8">
-                  <h3 className="text-xl font-bold mb-4">Nhận cuộc gọi</h3>
-                  <div className="w-16 h-1 bg-orange-primary mx-auto mb-4"></div>
-                  <p className="text-gray-600">
-                    Chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ để xác nhận thông tin
+                  <h3 className="text-xl font-bold mb-4 text-[#fc5d01]">Nhận cuộc gọi</h3>
+                  <div className="w-16 h-1 bg-[#fd7f33] mx-auto mb-4"></div>
+                  <p className="text-gray-700">
+                    Chúng tôi sẽ liên hệ với bạn trong vòng 24 giờ để xác nhận thông tin và lịch học thử
                   </p>
                 </div>
               </div>
               
-              <div className="card text-center relative border border-gray-100 hover:border-orange-primary transition-colors duration-300 hover:shadow-xl">
-                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-[#006d39] text-white flex items-center justify-center text-xl font-bold shadow-lg">
+              <div className="card text-center relative bg-white rounded-xl p-6 border-2 border-[#fdbc94] hover:border-[#fc5d01] transition-all duration-300 hover:shadow-xl">
+                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-14 h-14 rounded-full bg-[#fc5d01] text-white flex items-center justify-center text-xl font-bold shadow-lg">
                   2
                 </div>
                 <div className="pt-8">
-                  <h3 className="text-xl font-bold mb-4">Tư vấn lộ trình</h3>
-                  <div className="w-16 h-1 bg-orange-primary mx-auto mb-4"></div>
-                  <p className="text-gray-600">
-                    Chuyên gia sẽ tư vấn lộ trình học tập phù hợp với mục tiêu của bạn
+                  <h3 className="text-xl font-bold mb-4 text-[#fc5d01]">Tư vấn lộ trình</h3>
+                  <div className="w-16 h-1 bg-[#fd7f33] mx-auto mb-4"></div>
+                  <p className="text-gray-700">
+                    Chuyên gia sẽ tư vấn lộ trình học tập phù hợp với trình độ và mục tiêu cá nhân của bạn
                   </p>
                 </div>
               </div>
               
-              <div className="card text-center relative border border-gray-100 hover:border-orange-primary transition-colors duration-300 hover:shadow-xl">
-                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-12 h-12 rounded-full bg-[#006d39] text-white flex items-center justify-center text-xl font-bold shadow-lg">
+              <div className="card text-center relative bg-white rounded-xl p-6 border-2 border-[#fdbc94] hover:border-[#fc5d01] transition-all duration-300 hover:shadow-xl">
+                <div className="absolute -top-6 left-1/2 transform -translate-x-1/2 w-14 h-14 rounded-full bg-[#fc5d01] text-white flex items-center justify-center text-xl font-bold shadow-lg">
                   3
                 </div>
                 <div className="pt-8">
-                  <h3 className="text-xl font-bold mb-4">Tham gia lớp học thử</h3>
-                  <div className="w-16 h-1 bg-orange-primary mx-auto mb-4"></div>
-                  <p className="text-gray-600">
-                    Trải nghiệm lớp học thật để cảm nhận phương pháp giảng dạy của chúng tôi
+                  <h3 className="text-xl font-bold mb-4 text-[#fc5d01]">Tham gia lớp học thử</h3>
+                  <div className="w-16 h-1 bg-[#fd7f33] mx-auto mb-4"></div>
+                  <p className="text-gray-700">
+                    Trải nghiệm phương pháp giảng dạy độc quyền và nhận đánh giá chi tiết về kỹ năng hiện tại
                   </p>
                 </div>
               </div>
@@ -112,34 +112,54 @@ export default function ThankYou() {
         </div>
       </section>
       
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-white">
         <div className="container-custom">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl font-bold mb-6">Bạn có câu hỏi?</h2>
-            <p className="text-gray-600 mb-8">
-              Nếu bạn có bất kỳ câu hỏi nào, đừng ngần ngại liên hệ với chúng tôi qua Zalo hoặc email.
-            </p>
-            
-            <div className="flex flex-col md:flex-row justify-center gap-6">
-              <a 
-                href="https://zalo.me" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="flex items-center justify-center gap-2 bg-[#006d39] hover:bg-opacity-90 text-white px-8 py-4 rounded-lg shadow-md"
-              >
-                <span className="font-bold">Zalo</span>
-                <span>Liên hệ ngay</span>
-              </a>
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-[#ffac7b] rounded-2xl p-8 shadow-lg relative overflow-hidden">
+              {/* Background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 left-0 w-full h-full" style={{ 
+                  backgroundImage: 'radial-gradient(#fc5d01 1px, transparent 1px)', 
+                  backgroundSize: '20px 20px' 
+                }}></div>
+              </div>
               
-              <a 
-                href="mailto:pteintensive@gmail.com"
-                className="flex items-center justify-center gap-2 bg-orange-primary hover:bg-orange-bright text-white px-8 py-4 rounded-lg shadow-md"
-              >
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                </svg>
-                <span>Gửi email</span>
-              </a>
+              <div className="relative z-10 text-center">
+                <h2 className="text-3xl font-bold mb-6 text-[#fc5d01]">Bạn có câu hỏi?</h2>
+                <p className="text-gray-800 mb-8 max-w-2xl mx-auto">
+                  Nếu bạn có bất kỳ câu hỏi nào về lớp học thử, lộ trình học tập hoặc phương pháp giảng dạy, đừng ngần ngại liên hệ với chúng tôi qua các kênh dưới đây:
+                </p>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                  <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <h3 className="text-xl font-bold mb-3 text-[#fc5d01]">Liên hệ qua Facebook</h3>
+                    <p className="text-gray-700 mb-4">Nhận phản hồi nhanh chóng từ đội ngũ tư vấn viên</p>
+                    <a 
+                      href="https://www.facebook.com/PTE.Intensive.VN" 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center justify-center gap-2 bg-[#fc5d01] hover:bg-[#fd7f33] text-white px-6 py-3 rounded-full shadow-md transition-colors duration-300"
+                    >
+                      <span className="font-bold"></span>
+                      <span>Liên hệ ngay</span>
+                    </a>
+                  </div>
+                  
+                  <div className="bg-white rounded-xl p-6 shadow-md hover:shadow-xl transition-shadow duration-300">
+                    <h3 className="text-xl font-bold mb-3 text-[#fc5d01]">Gửi email cho chúng tôi</h3>
+                    <p className="text-gray-700 mb-4">Nhận tư vấn chi tiết về lộ trình học tập</p>
+                    <a 
+                      href="mailto:admin@pteintensive.com"
+                      className="inline-flex items-center justify-center gap-2 bg-[#fc5d01] hover:bg-[#fd7f33] text-white px-6 py-3 rounded-full shadow-md transition-colors duration-300"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                      </svg>
+                      <span>Gửi email</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>

@@ -103,8 +103,8 @@ const Footer = () => {
                     </div>
                     <div>
                       <p className="font-medium text-white">Email</p>
-                      <a href="mailto:pteintensive@gmail.com" className="text-gray-400 hover:text-orange-primary transition-colors">
-                        pteintensive@gmail.com
+                      <a href="mailto:admin@pteintensive.com" className="text-gray-400 hover:text-orange-primary transition-colors">
+                        admin@pteintensive.com
                       </a>
                     </div>
                   </li>
